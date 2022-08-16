@@ -1,14 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:lts-bullseye-slim' 
-            args '-p 3000:3000' 
-        }
-    }
+    agent any
+
     stages {
-        stage('Build') { 
+        stage('Verify Branch') { 
             steps {
-                sh 'npm install' 
+                echo "$GIT_BRANCH"
             }
         }
     }
