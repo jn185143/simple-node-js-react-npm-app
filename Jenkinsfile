@@ -20,6 +20,7 @@ pipeline {
         }
         stage('Prepare Enviornment'){
             steps {
+                sh('docker image prune')    
                 sh('docker run -dp 3000:3000 --name test-app jenkins-pipeline-simple-app')
             }
         }
