@@ -11,7 +11,6 @@ pipeline {
             steps {
                 sh('docker images -a')
                 sh('''
-                    cd simple-node-js-react-npm-app
                     docker images -a
                     docker build -t jenkins-pipeline-simple-app .
                     docker images -a
