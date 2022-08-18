@@ -19,7 +19,7 @@ pipeline {
             steps {
                  withCredentials([usernamePassword(credentialsId: "$credentials_Id", passwordVariable: 'password', usernameVariable: 'userName')]) {
                     withEnv(["repo_uri=$uri"]){
-                        echo('test ' + '${repo_uri/github/"$userName:$password@github"}' + ' test2')
+                        sh('echo test ' + '${repo_uri/github/"$userName:$password@github"}' + ' test2')
                     }
                 }
             }
