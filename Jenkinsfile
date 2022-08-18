@@ -19,7 +19,7 @@ pipeline {
                 credentials_Id=GitTaggingUtils.getGitCredentials([repo_uri:"${vars.repo_uri}"])
                  withCredentials([usernamePassword(credentialsId: "$credentials_Id", passwordVariable: 'password', usernameVariable: 'userName')]) {
                     withEnv(["repo_uri=$uri"]){
-                        sh('echo test ' + '${repo_uri/github/"$username:$password@github"}' + ' test2')
+                        sh('echo test ' + '${repo_uri/github/"$userName:$password@github"}' + ' test2')
                     }
                 }
             }
