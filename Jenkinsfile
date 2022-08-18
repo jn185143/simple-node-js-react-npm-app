@@ -4,6 +4,7 @@ pipeline {
     environment {
         // username="user"
         // password="password"
+        credentials_Id="1234"
         uri="https://github.com/jn185143/simple-node-js-react-npm-app.git"
     }
 
@@ -16,7 +17,6 @@ pipeline {
         stage('Test') { 
             
             steps {
-                credentials_Id=GitTaggingUtils.getGitCredentials([repo_uri:"${vars.repo_uri}"])
                  withCredentials([usernamePassword(credentialsId: "$credentials_Id", passwordVariable: 'password', usernameVariable: 'userName')]) {
                     withEnv(["repo_uri=$uri"]){
                         sh('echo test ' + '${repo_uri/github/"$userName:$password@github"}' + ' test2')
