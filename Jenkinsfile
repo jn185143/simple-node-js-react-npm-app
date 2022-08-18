@@ -4,7 +4,7 @@ pipeline {
     environment {
         // username="user"
         // password="password"
-        credentials_Id="1234"
+        credentials_Id="jenkins-jn-creds"
         uri="https://github.com/jn185143/simple-node-js-react-npm-app.git"
     }
 
@@ -19,7 +19,7 @@ pipeline {
             steps {
                  withCredentials([usernamePassword(credentialsId: "$credentials_Id", passwordVariable: 'password', usernameVariable: 'userName')]) {
                     withEnv(["repo_uri=$uri"]){
-                        sh('echo test ' + '${repo_uri/github/"$userName:$password@github"}' + ' test2')
+                        echo('test ' + '${repo_uri/github/"$userName:$password@github"}' + ' test2')
                     }
                 }
             }
