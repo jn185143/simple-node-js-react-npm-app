@@ -4,7 +4,7 @@ pipeline {
     environment {
         // username="user"
         // password="password"
-        uri="http://github.com"
+        uri="https://github.com/jn185143/simple-node-js-react-npm-app.git"
     }
 
     stages {
